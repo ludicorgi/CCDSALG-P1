@@ -35,11 +35,15 @@ int main () {
 #endif    
 
     /* NOTE: the next 5 lines are the computations being timed.  These lines should be replaced a line that calls a sorting function. */
-    int iterations = 1000*1000*1000;
-    for (i=0; i<iterations; i++) {
-        sum += add;
-        add /= 2.0;
-    }
+    /*ADD ALGO HERE
+
+
+
+
+
+
+
+    */
     
     // Stop measuring time and calculate the elapsed time
 #if CPU_TIME 
