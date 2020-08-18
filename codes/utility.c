@@ -1,3 +1,4 @@
+//remove function once final
 void display(const int *arr, int n)
 {
 	int i;
