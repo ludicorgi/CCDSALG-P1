@@ -7,20 +7,23 @@
   lower --- lower index
   upper --- upper index
 */
-int partition(int arr[], int lower, int upper)
+int partition(int arr[], int lower, int upper, int *ctr)
 {
     int i = (lower - 1);
 
     int pivot = arr[upper];  // Selects last element as the pivot value
 
     int j;
+    *ctr = 0;
     for (j = lower; j < upper; j++)
     {
+        *ctr++;
         if (arr[j] <= pivot)
         {  // if current element is smaller than the pivot
 
             i++;  // increment the index of smaller element
             swap(&arr[i], &arr[j]);
+            *ctr++;
         }
     }
 
@@ -35,7 +38,7 @@ int partition(int arr[], int lower, int upper)
     lower --- Starting index
     upper --- Ending index
 */
-void quickSort(int arr[], int lower, int upper)
+int quickSort(int arr[], int lower, int upper)
 {
     if (upper > lower)
     {
@@ -47,5 +50,7 @@ void quickSort(int arr[], int lower, int upper)
         // Sorting elements before and after the partition index
         quickSort(arr, lower, partitionIndex - 1);
         quickSort(arr, partitionIndex + 1, upper);
+        ctr++;
     }
+  return ctr;
 }
