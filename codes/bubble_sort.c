@@ -5,7 +5,7 @@
  * @param arr array to be sorted
  * @param size size of array
  */
-int bubbleSort(int *arr, int size)
+int bubbleSort(int arr, int size)
 {
 	int i,j;
 	int ctr = 0;
