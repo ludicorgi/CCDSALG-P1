@@ -16,3 +16,11 @@ void swap(int *a, int *b)
     *a = *b;
     *b = tmp;
 }
+
+void copy(int *src, int *dest, int size)
+{
+	int i;
+	for(i = 0; i < size; i++) {
+      dest[i] = src[i];
+   }
+}

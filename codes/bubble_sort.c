@@ -8,7 +8,7 @@
 int bubbleSort(int *arr, int size)
 {
 	int i,j;
-	int ctr = 0;
+	long int ctr = 0;
     for (i = 0; i < size - 1; i++)
     {                         /* for each array index */
         bool swapped = false; /* flag to check if any changes had to be made */

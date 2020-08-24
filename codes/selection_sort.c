@@ -8,7 +8,7 @@
 int selectionSort(int *arr, int size)
 {
 	int i, j;
-	int ctr = 0;
+	long int ctr = 0;
     for (i = 0; i < size - 1; i++)
     {
         int min_index = i;

@@ -3,21 +3,21 @@
 int insertionSort(int *arr, int size)
 {
 	int i;
-	int ctr = 0;
+	long int ctr = 0;
+	
     for (i = 1; i < size; i++)
     {
-        int j = i - 1;
-        int key = arr[i];
-	ctr++;
+        int j = i - 1;	  ctr++;
+        int key = arr[i]; ctr++;
+				
         /* Move all elements greater than key to one position */
         while (j >= 0 && key < arr[j])
         {
-            arr[j + 1] = arr[j];
-            j = j - 1;
-	    ctr++;
+            arr[j + 1] = arr[j]; ctr++;
+            j = j - 1; ctr++;
         }
         /* Find a correct position for key */
-        arr[j + 1] = key;
+        arr[j + 1] = key; ctr++;
     }
 	return ctr;
 }

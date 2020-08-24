@@ -9,7 +9,7 @@ int merge(int arr[], int l, int m, int r)
 	int i, j, k; 
 	int n1 = m - l + 1; 
 	int n2 = r - m;
-	int ctr = 0;
+	long int ctr = 0;
 
 	/* create temp arrays */
 	int L[n1], R[n2]; 
@@ -28,9 +28,9 @@ int merge(int arr[], int l, int m, int r)
 	}
 
 	/* Merge the temp arrays back into arr[l..r]*/
-	i = 0; // Initial index of first subarray 
-	j = 0; // Initial index of second subarray 
-	k = l; // Initial index of merged subarray 
+	i = 0; /* Initial index of first subarray*/		ctr++;
+	j = 0; /* Initial index of second subarray */	ctr++;
+	k = l; /* Initial index of merged subarray */	ctr++;
 	while (i < n1 && j < n2) { 
 		if (L[i] <= R[j]) { 
 			arr[k] = L[i]; 
@@ -69,18 +69,17 @@ int merge(int arr[], int l, int m, int r)
 sub-array of arr to be sorted */
 int mergeSort(int arr[], int l, int r) 
 { 
-	int ctr = 0;
+	long int ctr = 0;
 	if (l < r) { 
 		// Same as (l+r)/2, but avoids overflow for 
 		// large l and h 
-		int m = l + (r - l) / 2; 
+		int m = l + (r - l) / 2; ctr++;
 
 		// Sort first and second halves 
-		mergeSort(arr, l, m); 
-		mergeSort(arr, m + 1, r); 
+		ctr += mergeSort(arr, l, m); 
+		ctr += mergeSort(arr, m + 1, r); 
 
-		merge(arr, l, m, r);
-		ctr++;
+		ctr += merge(arr, l, m, r);
 	} 
 	return ctr;
 } 

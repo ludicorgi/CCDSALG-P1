@@ -7,28 +7,28 @@
   lower --- lower index
   upper --- upper index
 */
-int partition(int arr[], int lower, int upper, int *ctr)
-{
-    int i = (lower - 1);
 
-    int pivot = arr[upper];  // Selects last element as the pivot value
+int partition(int arr[], int lower, int upper, long int *ctr)
+{
+    int i = (lower - 1); *ctr++;
+
+    int pivot = arr[upper];  *ctr++; // Selects last element as the pivot value
 
     int j;
-    *ctr = 0;
     for (j = lower; j < upper; j++)
     {
-        *ctr++;
+        
         if (arr[j] <= pivot)
         {  // if current element is smaller than the pivot
 
             i++;  // increment the index of smaller element
-            swap(&arr[i], &arr[j]);
-            *ctr++;
+            swap(&arr[i], &arr[j]); *ctr++;
         }
+        *ctr++;
     }
 
     swap(&arr[i + 1], &arr[upper]);  // places the last element i.e, the pivot
-                                     // to its correct position
+     *ctr++;                          // to its correct position
 
     return (i + 1);
 }
@@ -38,19 +38,20 @@ int partition(int arr[], int lower, int upper, int *ctr)
     lower --- Starting index
     upper --- Ending index
 */
-int quickSort(int arr[], int lower, int upper)
+long int quickSort(int arr[], int lower, int upper)
 {
+	long int ctr = 0;
     if (upper > lower)
     {
         // partitioning index is returned by the partition method , partition
         // element is at its correct poition
-
-        int partitionIndex = partition(arr, lower, upper);
-
+        int partitionIndex = partition(arr, lower, upper, &ctr);
+ 
         // Sorting elements before and after the partition index
-        quickSort(arr, lower, partitionIndex - 1);
-        quickSort(arr, partitionIndex + 1, upper);
+        ctr += quickSort(arr, lower, partitionIndex - 1);
+        ctr += quickSort(arr, partitionIndex + 1, upper);
         ctr++;
     }
-  return ctr;
+    
+    return ctr;
 }
